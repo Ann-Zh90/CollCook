@@ -1,0 +1,43 @@
+.recipeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+.recipeHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleContainer {
+    position: relative;
+    width: 65%;
+    text-align: center;
+}
+
+.titleContainer img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 7px 10px 7px lightgrey;
+}
+
+.title {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-shadow: 3px 2px 4px white;
+}
+.data {
+    display: flex;
+    gap: 20px;
+}

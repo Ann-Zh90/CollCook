@@ -1,0 +1,62 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /*border: 1px solid black;*/
+    width: 300px;
+    font-family: 'Vollkorn', serif;
+    box-shadow: 2px 3px 4px lightgray;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+.imgContainer {
+    /*margin-bottom: 10px;*/
+}
+.image {
+    display: block;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 7px;
+    text-align: center;
+    justify-content: center;
+    font-style: normal;
+}
+
+.name {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: italic;
+}
+.data {
+    display: flex;
+    justify-content: space-between;
+}
+.category,
+.ingredients {
+    font-size: 12px;
+    text-align: left;
+}
+
+.smallDescription {
+
+}
+.link {
+    display: block;
+    padding: 5px 2px;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 2px 3px 4px lightgray;
+}
+
+.link:active, /* активная/посещенная ссылка */
+.link:hover,  /* при наведении */
+.link {
+    color: #000;
+    text-decoration: none;
+}

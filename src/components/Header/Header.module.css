@@ -1,0 +1,42 @@
+.header {
+    background-color: rgb(181 233 239 / 47%);
+    grid-area: h;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.logoContainer {
+    flex: 0 0 16.67%;
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    width: 100px;
+    height: 65px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: auto;
+    flex: 0 0 auto;
+}
+
+.navbar a {
+    text-decoration: none;
+    /*font-family: 'Sacramento', cursive;*/
+    font-family: 'Marck Script', cursive;
+    font-size: 30px;
+    font-weight:700;
+    font-style: italic;
+    color: rgb(66 177 184);
+}
+.navbar .activeLink {
+    text-decoration:underline;
+    text-decoration-style: double;
+}
