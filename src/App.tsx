@@ -6,6 +6,7 @@ import AboutPage from './components/Pages/AboutPage/AboutPage';
 import BlogPage from './components/Pages/BlogPage/BlogPage';
 import RecipesPage from './components/Pages/RecipesPage/RecipesPage';
 import RecipeFullDescription from "./components/RecipeItem/RecipeFullDescription";
+import AddRecipePage from "./components/Pages/AddRecipePage/AddRecipePage";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/recipes/:id" element={<RecipeFullDescription/>}/>
                     <Route path="/blog" element={<BlogPage/>}/>
                     <Route path="/about" element={<AboutPage/>}/>
+                    <Route path="/add" element={<AddRecipePage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

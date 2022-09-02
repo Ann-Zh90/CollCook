@@ -25,6 +25,7 @@
     text-align: center;
     justify-content: center;
     font-style: normal;
+    font-weight: normal;
 }
 
 .name {
@@ -52,6 +53,7 @@
     border-radius: 12px;
     text-decoration: none;
     box-shadow: 2px 3px 4px lightgray;
+    font-weight: 700;
 }
 
 .link:active, /* активная/посещенная ссылка */

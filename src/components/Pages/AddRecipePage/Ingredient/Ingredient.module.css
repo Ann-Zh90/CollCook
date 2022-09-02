@@ -1,0 +1,7 @@
+.ingredientItem {
+    display: flex;
+    gap: 10px;
+}
+.ingredientItem >* {
+    flex: 1 1 33%;
+}

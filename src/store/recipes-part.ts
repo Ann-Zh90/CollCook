@@ -15,11 +15,14 @@ interface IRecipesState {
     dishes: IDish[]
 }
 
-const units = {
+export const units = {
     piece: "piece",
     g: "g",
     tbsp: "tbsp",
-    tsp: "tsp"
+    tsp: "tsp",
+    kg: "kg",
+    ml: "ml",
+    l: "l"
 }
 
 const initialState: IRecipesState = {
