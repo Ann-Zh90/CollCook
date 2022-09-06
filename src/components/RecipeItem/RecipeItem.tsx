@@ -17,8 +17,8 @@ const RecipeItem: React.FC<IRecipeItemProps> = ({recipe}) => {
         <div className={s.infoContainer}>
             <div className={s.name}>{recipe.name}</div>
             <div className={s.data}>
-                <div>Published: {recipe.date.toLocaleDateString('en-GB')}</div>
-                <div>Rating: {recipe.rate}</div>
+                <div>Published: {recipe.date}</div>
+                {recipe.rate && <div>Rating: {recipe.rate}</div>}
             </div>
             <div className={s.category}>Categories: {recipe.categories.join(", ")}</div>
             <div className={s.ingredients}>Ingredients: {recipe.ingredients.map(ing=>ing[0]).join(", ")}</div>
