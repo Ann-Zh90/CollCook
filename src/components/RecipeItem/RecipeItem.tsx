@@ -1,5 +1,4 @@
 import s from './RecipeItem.module.css';
-import udon from "../../images/recipes/udon.jpg"
 import {Link} from 'react-router-dom';
 import React from "react";
 import {IDish} from "../../store/recipes-part";
@@ -12,7 +11,7 @@ const RecipeItem: React.FC<IRecipeItemProps> = ({recipe}) => {
 
     return <div className={s.card}>
         <div className={s.imgContainer}>
-            <img src={udon} alt="udon" className={s.image}/>
+            <img src={recipe.mainImg} alt="udon" className={s.image}/>
         </div>
         <div className={s.infoContainer}>
             <div className={s.name}>{recipe.name}</div>

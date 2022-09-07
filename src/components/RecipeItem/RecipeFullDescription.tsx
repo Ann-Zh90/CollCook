@@ -16,7 +16,7 @@ const RecipeFullDescription: React.FC = () => {
             <div className={s.recipeContainer}>
                 <div className={s.recipeHeader}>
                     <div className={s.titleContainer}>
-                        <img src={udon} alt="udon"/>
+                        <img src={recipe.mainImg} alt="udon"/>
                         <h1 className={s.title}>{recipe.name}</h1></div>
                 </div>
                 <div className={s.data}>
