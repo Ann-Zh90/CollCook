@@ -10,6 +10,13 @@ const RecipeFullDescription: React.FC = () => {
     const recipesList = useSelector((state: RootState) => state.recipes.dishes);
     const {id} = useParams();
     const recipe = recipesList.find(recipe => recipe.id.toString() === id);
+
+    const steps =  recipe?.fullDescription?.map((step, index) => <div>
+        <h2>STEP {index+1}</h2>
+        <div>{step[0]}</div>
+        {step[1]&& <img src={step[1]} alt={recipe.name}/>}
+    </div>)
+
     return (<Fragment>
         {!recipe && <div>Error!</div>}
         {recipe &&
@@ -27,13 +34,7 @@ const RecipeFullDescription: React.FC = () => {
                 <div>Ingredients: {recipe.ingredients.map(ing => ing[0]).join(", ")}
                 </div>
                 <div>Cooking Steps
-                    <div>
-                        <h2>STEP 1</h2>
-                        {recipe.fullDescription && recipe.fullDescription[0]}</div>
-                    <div>
-                        <h2>STEP 2</h2>
-                        {recipe.fullDescription && recipe.fullDescription[1]}
-                    </div>
+                    {recipe && steps}
                 </div>
             </div>}
     </Fragment>)

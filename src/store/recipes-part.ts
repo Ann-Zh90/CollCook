@@ -9,8 +9,8 @@ export interface IDish {
     date: string;
     rate?: number;
     smallDescription?: string;
-    fullDescription?: string[];
-    mainImg?: string;
+    fullDescription?: Array<[string, string]>;
+    mainImg?: string
 }
 
 interface IRecipesState {
@@ -36,7 +36,7 @@ export const firstRecipe:IDish = {
     date: new Date().toLocaleDateString('en-GB'),
     rate: 4.5,
     smallDescription: "Pack in the veg with our flavour-packed Japanese-inspired yaki udon. It's healthy, takes just 25 minutes to make, and is low in fat and calories",
-    fullDescription: ["Heat the oil in a non-stick frying pan or wok over a high heat. Add the onion and fry for 5 mins. Stir in the mangetout, corn, pak choi and spring onions and cook for 5 mins more. Add the garlic, curry powder and soy sauce, and cook for another minute.", "Add the udon noodles along with the ginger (if using) and reserved brine, and stir in 2-3 tbsp hot water until the noodles are heated through. Divide between bowls and serve."],
+    fullDescription: [["Heat the oil in a non-stick frying pan or wok over a high heat. Add the onion and fry for 5 mins. Stir in the mangetout, corn, pak choi and spring onions and cook for 5 mins more. Add the garlic, curry powder and soy sauce, and cook for another minute.", ""], ["Add the udon noodles along with the ginger (if using) and reserved brine, and stir in 2-3 tbsp hot water until the noodles are heated through. Divide between bowls and serve.", ""]],
     mainImg: udon
 }
 
