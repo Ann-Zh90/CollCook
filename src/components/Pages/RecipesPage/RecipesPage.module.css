@@ -4,17 +4,32 @@
     font-family: 'Vollkorn', serif;
     font-weight: 700;
     font-style: italic;
+    background-color: #ffff;
+    width: 85%;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.container h1 {
+    margin-top: 0;
+}
+
+.allRecipes {
+    display: flex;
+    gap: 30px;
+    justify-content: space-around;
 }
 
 .addRecipe {
     position: absolute;
     display: flex;
     justify-content: center;
-    bottom: 0;
-    right: 0;
-    width: 60px;
-    height: 60px;
-    line-height: 18px;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    line-height: 20px;
     border-radius: 50%;
     font-size: 13px;
     background-color: rgb(181 233 239 / 47%);

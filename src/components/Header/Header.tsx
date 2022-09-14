@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         <div className={s.container}>
             <div className={s.logoContainer}>
                 <Link to="/">
-                    <img src={logo} className={s.logo} alt="logo"/>
+                    <div className={s.logoWrapper}><img src={logo} className={s.logo} alt="logo"/></div>
                 </Link>
             </div>
             <nav className={s.navbar}>

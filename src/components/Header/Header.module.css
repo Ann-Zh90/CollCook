@@ -1,5 +1,6 @@
 .header {
-    background-color: rgb(181 233 239 / 47%);
+    /*background-color: rgb(181 233 239 / 47%);*/
+    background-color: var(--header-bg-color);
     grid-area: h;
 }
 
@@ -15,8 +16,15 @@
     justify-content: center;
 }
 .logo {
-    width: 100px;
-    height: 65px;
+    width: 95px;
+    height: 60px;
+}
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    padding: 3px 8px;
+    background-color: #ffff;
+    border-radius: 14px;
 }
 
 .navbar {

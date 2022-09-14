@@ -39,7 +39,14 @@
 }
 .data {
     display: flex;
+    justify-content: start;
+    align-items: center;
     gap: 20px;
+}
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .ingredients {
@@ -57,4 +64,8 @@
 .dots {
     flex: 1 0;
     border-bottom: 1px dotted #000;
+}
+
+.rating {
+    display: flex;
 }

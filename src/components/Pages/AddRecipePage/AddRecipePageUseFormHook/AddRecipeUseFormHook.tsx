@@ -1,12 +1,8 @@
 import React, {FormEvent, useState} from "react";
-import {recipesAction, units, IDish} from "../../../../store/recipes-part";
+import {units, IDish} from "../../../../store/recipes-part";
 import {useForm, SubmitHandler} from "react-hook-form";
 
-import {firstRecipe} from "../../../../store/recipes-part";
-
 import s from './AddRecipeUseFormHook.module.css'
-import {useDispatch} from "react-redux";
-import {AppDispatch} from "../../../../store/store";
 
 export const fireBaseURL = 'https://coolcook-ce2db-default-rtdb.europe-west1.firebasedatabase.app/recipes.json'
 
@@ -17,7 +13,8 @@ interface IIngredient {
     units?: string;
     id?: string;
 }
-interface IStep{
+
+interface IStep {
     image: string;
     text: string;
 }
@@ -34,7 +31,11 @@ type IFormData = {
     fullDescription: {
         [prop: string]: IStep
     };
-    mainImg: string
+    mainImg: string;
+    rating: {
+        voices: number;
+        rating: number
+    }
 }
 
 interface IStep {
@@ -58,7 +59,6 @@ const AddRecipeUseFormHook = () => {
         image: ""
     }])
 
-    //const dispatch = useDispatch<AppDispatch>();
 
     async function addRecipeFireBase(recipe: IDish) {
         await fetch(fireBaseURL, {
@@ -71,9 +71,7 @@ const AddRecipeUseFormHook = () => {
     }
 
 
-    const onSubmit: SubmitHandler<IFormData> = (data) => { // create correct type for form data
-        //console.log(data.mainImg[0])
-       // const img = URL.createObjectURL(data.mainImg[0])
+    const onSubmit: SubmitHandler<IFormData> = (data) => {
         const date = new Date().toLocaleDateString('en-GB')
         const recipe: IDish = {
             id: Math.random(),
@@ -82,10 +80,13 @@ const AddRecipeUseFormHook = () => {
             ingredients: Object.values(data.ingredients).map((ingredient: any) => [ingredient.ingredient, ingredient.amount, ingredient.units]) as Array<[name: string, amount: number, units: string]>,
             date: date,
             smallDescription: data.smlDescription,
-            fullDescription: Object.values(data.fullDescription).map(i=> [i.text, i.image]),
+            fullDescription: Object.values(data.fullDescription).map(i => [i.text, i.image]),
             mainImg: data.mainImg,
+            rating: {
+                voices: 0,
+                rating: 0
+            },
         }
-        //dispatch(recipesAction.addRecipe(recipe));
         addRecipeFireBase(recipe)
     };
 
@@ -133,16 +134,16 @@ const AddRecipeUseFormHook = () => {
 
     return (
 
-        <div>
+        <div className={s.addRecipeContainer}>
             <h2>Create Your Own Culinary Masterpiece</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
                 <div className={s.title}>
                     <label htmlFor="title">Make Up Name</label>
                     <input id="title" placeholder="type title" {...register("title")}/>
                     <label htmlFor="mainImg">Add an Image Link </label>
-                    <input  id="mainImg" {...register("mainImg")}/>
+                    <input id="mainImg" {...register("mainImg")}/>
                 </div>
-                <fieldset className={s.sectionContainer}>
+                <fieldset className={`${s.sectionContainer} ${s.dishType}`}>
                     <legend>Chose Types of Dish</legend>
                     <div>
                         <label htmlFor="dishType">Select Type of Dish</label>
@@ -179,8 +180,7 @@ const AddRecipeUseFormHook = () => {
                     </div>
                 </fieldset>
 
-
-                <fieldset>
+                <fieldset className={s.ingredientSection}>
                     <legend>Ingredients</legend>
                     {ingredientSet.map((ing, index) => {
                             return <div className={s.ingredientItem} key={ing.id}>
@@ -200,32 +200,35 @@ const AddRecipeUseFormHook = () => {
                         }
                     )
                     }
-                    <button type="button" onClick={addIngredientHandler}>Add Another Ingredient</button>
+                    <button type="button" onClick={addIngredientHandler} className={s.btn}>Add Another Ingredient
+                    </button>
                 </fieldset>
 
-                <fieldset>
+                <fieldset className={`${s.labelAlignment} ${s.fieldsetStyle}`}>
                     <legend>Add Small Description</legend>
                     <label htmlFor="smlDescription">Small Description</label>
-                    <textarea id="smlDescription" {...register("smlDescription")}/>
+                    <textarea id="smlDescription" {...register("smlDescription")} rows={5}/>
                 </fieldset>
 
-                <fieldset>
+                <fieldset className={s.fieldsetStyle}>
                     <legend>Add Step by Step Description</legend>
 
-                    {cookingStep.map((step, index) => <div key={step.id}>
-                        <div><label htmlFor={`${step.id}.image`}>Add image</label>
+                    {cookingStep.map((step, index) => <div key={step.id} className={s.stepAlignment}>
+                        <div className={s.labelAlignment}><label htmlFor={`${step.id}.image`}>Add image</label>
                             <input id={`${step.id}.image`} {...register(`fullDescription.step_${step.id}.image`)}/>
                         </div>
-                        <div><label htmlFor={`step_${step.id}`}>{index + 1} step</label>
+                        <div className={s.labelAlignment}><label htmlFor={`step_${step.id}`}>{index + 1} step</label>
                             <textarea id={`step_${step.id}`} {...register(`fullDescription.step_${step.id}.text`)}
                                       onChange={e => stepChangeHandler(e, index)} defaultValue={step.text}/>
                         </div>
                     </div>)}
-                    <button type="button" onClick={addStepHandler}>Add Step</button>
+                    <button type="button" onClick={addStepHandler} className={s.btn}>Add Step</button>
                 </fieldset>
 
-                <button type="submit" className={s.btn}>Create recipe</button>
+                <button type="submit" className={`${s.btn} ${s.btnSubmit}`}>Create recipe</button>
             </form>
+
+
         </div>
     )
 }

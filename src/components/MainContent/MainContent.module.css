@@ -5,24 +5,39 @@
         "h h h"
         "n m m"
         "f f f";
-    grid-template-rows: 65px 10fr auto;
+    grid-template-rows: 70px 10fr auto;
     grid-template-columns: 2fr 5fr 5fr;
 
 }
 
 .navDishes {
+    position: relative;
     grid-area: n;
-    background-color: bisque;
+    background-color: var(--main-bg-color);
 }
 
+.navDishes::after {
+    content: "";
+    position: absolute;
+    height: 98%;
+    top: 50%;
+    right: 0;
+    width: 5px;
+    background-color: #ffff;
+    transform: translate(0, -50%);
+    border-radius: 25px;
+}
 .main {
     grid-area: m;
-    padding: 10px;
+    background-color: var(--main-bg-color);
+    padding: 15px 0;
 }
+
 .footer {
     grid-area: f;
-    background-color: darksalmon;
+    background-color: var(--header-bg-color);
     display: flex;
     justify-content: space-between;
     padding: 5px ;
+    color: rgb(66 177 184);
 }

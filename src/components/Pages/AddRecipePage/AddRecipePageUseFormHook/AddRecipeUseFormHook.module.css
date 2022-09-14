@@ -1,7 +1,12 @@
+.addRecipeContainer {
+    width: 75%;
+    margin: 0 auto;
+}
+
 .form {
     display: flex;
     flex-direction: column;
-    gap: 20px
+    gap: 10px
 }
 
 .title {
@@ -18,10 +23,22 @@
 .sectionContainer {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
     border: 1px solid lightgray;
+}
 
-    /*padding: 10px 0;*/
+.dishType {
+    flex-wrap: wrap;
+}
+
+.fieldsetStyle {
+    border: 1px solid lightgray;
+}
+
+.ingredientSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid lightgray;
 }
 
 .sectionContainer div {
@@ -39,13 +56,56 @@
     padding: 7px;
     border-radius: 5px;
     border: 1px solid #c0c0c0;
+    box-shadow: 2px 2px 2px lightgray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 1px 1px 2px #dcdada;
+}
+
+.btnSubmit {
+    /*border: 1px solid black;*/
+    box-shadow: 2px 2px 2px lightgray;
+    font-weight: 700;
+    color: #3a3939;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .ingredientItem {
     display: flex;
     gap: 10px;
 }
-.ingredientItem >* {
+
+.ingredientItem > * {
     flex: 1 1 33%;
+}
+
+.stepAlignment {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.labelAlignment {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.labelAlignment label {
+    flex: 1 1 15%;
+}
+
+.labelAlignment input {
+    flex: 1 1 85%;
+}
+
+.labelAlignment textarea {
+    flex: 1 1 85%;
 }
 
